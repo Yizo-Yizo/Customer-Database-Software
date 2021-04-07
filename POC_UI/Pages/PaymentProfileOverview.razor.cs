@@ -36,19 +36,29 @@ namespace Proof_Of_Concept.Pages
                 return true;
 
             
-                if (paymentProfile.Id.ToString().Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                    return true;
+            if (paymentProfile.Id.ToString().Contains(Filter, StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            if (paymentProfile.Owner == null)
+                paymentProfile.Owner = "N/A";
+            else
                 if (paymentProfile.Owner.Contains(Filter, StringComparison.OrdinalIgnoreCase))
                     return true;
+
+            if (paymentProfile.Iban == null)
+                paymentProfile.Iban = "N/A";
+            else
                 if (paymentProfile.Iban.Contains(Filter, StringComparison.OrdinalIgnoreCase))
                     return true;
+
+            if (paymentProfile.Status == null)
+                paymentProfile.Status = "N/A";
+            else
                 if (paymentProfile.Status.Contains(Filter, StringComparison.OrdinalIgnoreCase))
                     return true;
 
-                return false;
-            
-        }
+            return false;
 
-        
+        }
     }
 }

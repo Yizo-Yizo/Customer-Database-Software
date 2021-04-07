@@ -47,25 +47,5 @@ namespace Proof_Of_Concept.Services
         {
             await _client.DeleteAsync($"api/Contacts/{contactId}");
         }
-
-        public Task<IEnumerable<AssociatedContact>> GetAssociatedContacts()
-        {
-            throw new NotImplementedException();
-        }
-
-        /*public async Task<IEnumerable<AssociatedContact>> GetAssociatedContacts(int accountId)    
-        {            
-            Contacts = await _client.GetJsonAsync<Contact[]>("api/Contacts");  
-            //Accounts = await _client.GetJsonAsync<Account[]>("api/Accounts"); 
-            var relativeContact = 
-                from contact 
-                in Contacts  
-                join account 
-                in Accounts 
-                on contact.Id equals account.Id 
-            select new {  Name = contact.ContactPerson, Email = contact.Email, Phone = contact.Phone };
-            relativeContact
-            return 
-        }*/
     }
 }

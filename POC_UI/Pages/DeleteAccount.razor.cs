@@ -23,7 +23,6 @@ namespace Proof_Of_Concept.Pages
         [Parameter]
         public int AccountId { get; set; }
 
-        public string Message { get; set; }
         public string Filter { get; set; }
 
         protected override async Task OnInitializedAsync()
@@ -45,27 +44,6 @@ namespace Proof_Of_Concept.Pages
         protected void NavigateToOverview()
         {
             NavigationManager.NavigateTo("AccountsOverview");
-        }
-
-        public bool Isvisible(Account account)
-        {
-            if (string.IsNullOrEmpty(Filter))
-                return true;
-
-            if (account.AccountName.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (account.Address.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (account.Email.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (account.Phone.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (account.City.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (account.Id.ToString().StartsWith(Filter))
-                return true;
-
-            return false;
         }
 
     }

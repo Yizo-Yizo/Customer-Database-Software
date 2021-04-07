@@ -33,9 +33,7 @@ namespace Proof_Of_Concept.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            
             Contact = await ContactDataService.GetContactById(ContactId);
-            //Accounts = (await AccountDataService.GetAllAccounts()).ToList();
             Contacts = (await ContactDataService.GetAllContacts()).ToList();
 
             AssociatedContacts = (from contact
@@ -49,6 +47,7 @@ namespace Proof_Of_Concept.Pages
             NavigationManager.NavigateTo("/Contacts");
         }
 
+        // Filter
         public bool Isvisible(Contact associatedContact)
         {
             if (string.IsNullOrEmpty(Filter))

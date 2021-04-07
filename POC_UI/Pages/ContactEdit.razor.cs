@@ -20,7 +20,6 @@ namespace Proof_Of_Concept.Pages
 
         [Parameter]
         public int ContactId { get; set; }
-        public string Message { get; set; }
 
         protected override async Task OnInitializedAsync()
         {

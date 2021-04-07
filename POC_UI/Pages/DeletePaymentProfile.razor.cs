@@ -23,7 +23,6 @@ namespace Proof_Of_Concept.Pages
         [Parameter]
         public int PaymentProfileId { get; set; }
 
-        public string Message { get; set; }
         public string Filter { get; set; }
 
         protected override async Task OnInitializedAsync()

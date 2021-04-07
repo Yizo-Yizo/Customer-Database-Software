@@ -18,17 +18,16 @@ namespace Proof_Of_Concept.Pages
         public Contact Contact { get; set; } = new Contact();
 
         public List<Contact> Contacts { get; set; }
-
         public List<Contact> AssociatedContacts { get; set; }
 
         public string Filter { get; set; }
-        public string message { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             Contacts = (await IContactDataService.GetAllContacts()).ToList();
         }
 
+        // Filter
         public bool IsVisible(Contact contact)
         {
             if (string.IsNullOrEmpty(Filter))

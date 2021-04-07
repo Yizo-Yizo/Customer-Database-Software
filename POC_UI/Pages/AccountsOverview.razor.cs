@@ -26,7 +26,6 @@ namespace Proof_Of_Concept.Pages
 
         public string Filter { get; set; }
 
-        public StatsModel StatsModel { get; set; } = new StatsModel();
         public Account Account { get; set; } = new Account();
 
         public List<Account> Accounts { get; set; }
@@ -44,8 +43,6 @@ namespace Proof_Of_Concept.Pages
         public List<string> ListOfNameS = new List<string>();
         public List<string> ListOfEmailS = new List<string>();
         public List<string> ListOfPhoneS = new List<string>();
-
-        public int i { get; set; }
 
         public List<Contact> AssociatedContacts { get; set; }
 

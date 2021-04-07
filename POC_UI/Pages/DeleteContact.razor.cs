@@ -23,7 +23,6 @@ namespace Proof_Of_Concept.Pages
         [Parameter]
         public int ContactId { get; set; }
 
-        public string Message { get; set; }
         public string Filter { get; set; }
 
         protected override async Task OnInitializedAsync()
@@ -45,27 +44,6 @@ namespace Proof_Of_Concept.Pages
         protected void NavigateToContactsOverview()
         {
             NavigationManager.NavigateTo("/Contacts");
-        }
-
-        public bool Isvisible(Contact contact)
-        {
-            if (string.IsNullOrEmpty(Filter))
-                return true;
-
-            if (contact.ContactPerson.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (contact.Address.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (contact.Email.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (contact.Phone.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (contact.City.Contains(Filter, StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (contact.Id.ToString().StartsWith(Filter))
-                return true;
-
-            return false;
         }
     }
 }

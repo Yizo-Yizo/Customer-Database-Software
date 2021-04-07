@@ -13,6 +13,5 @@ namespace Proof_Of_Concept.Interfaces
         Task<IEnumerable<Contact>> GetAllContacts();
         Task<Contact> GetContactById(int contactId);
         Task UpdateContact(Contact contact, int id);
-        Task<IEnumerable<AssociatedContact>> GetAssociatedContacts();
     }
 }

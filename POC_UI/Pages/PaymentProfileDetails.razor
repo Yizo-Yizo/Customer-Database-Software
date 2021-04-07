@@ -1,0 +1,55 @@
+﻿@page "/Payments/{PaymentProfileId:int}"
+@inherits PaymentProfileBase
+
+
+
+<section class="account-detail-left">
+    <div class="AccountHeading">
+        <h2 class="Account-page-title">Payment Details</h2>
+
+    </div>
+    <hr />
+    <div class="accountDetails-left">
+
+        <div class="accountTable table-hover">
+            <div class="column">
+                <span><strong>Owner :</strong>@PaymentProfile.Owner </span>
+            </div>
+            <br />
+            <div class="column">
+                <p><strong>Account ID : </strong>@PaymentProfile.AccountId</p>
+            </div>
+            <div class="column">
+                <span><strong>IBAN :</strong>@PaymentProfile.Iban </span>
+            </div>
+            <br />
+            <div class="column">
+                <span><strong>BIC :</strong>@PaymentProfile.Bic </span>
+            </div>
+            <br />
+            <div class="column">
+                <span><strong>Status :</strong>@PaymentProfile.Status </span>
+            </div>
+            <br />
+            <div class="column">
+                <span><strong>Created On :</strong>@PaymentProfile.CreatedOn</span>
+            </div>
+            <br />
+
+        </div>
+
+        <hr />
+        <div class="row" style="padding:15px">
+
+            <a href="@($"PaymentProfileEdit/{PaymentProfile.Id}")" title="Edit User" class="EditUser btn btn-warning table-btn ">
+                <i class="glyphicon glyphicon-pencil" style="color:white"></i>
+            </a>
+            &nbsp;
+            <a href="@($"AccountDetails/{PaymentProfile.Id}")" class=" btn btn-primary table-btn">
+                <i class="fas fa-info-circle">Back</i>
+            </a>
+
+        </div>
+    </div>
+
+</section>

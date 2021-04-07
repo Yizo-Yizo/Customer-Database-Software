@@ -1,0 +1,64 @@
+﻿@page "/DeletePaymentProfile/{PaymentProfileId:int}"
+@inherits DeletePaymentProfileBase
+
+<section class="account-detail">
+    <h1 class="page-title">Are you sure you want to delete Account: @PaymentProfile.Owner </h1>
+
+    @{
+        var leadingFormat = "00000";
+        //var a = Employee.EmployeeId.ToString("00000");
+    }
+
+
+    <div class="col-12 row">
+        <div class="col-10 row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"> PaymentProfile ID</label>
+                    <div class="col-sm-8">
+                        <label type="text" class="form-control-plaintext">@PaymentProfile.Id.ToString(leadingFormat)</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Name</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@PaymentProfile.Owner</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">IBAN</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@PaymentProfile.Iban</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">BIC</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@PaymentProfile.Bic</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Created On</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@PaymentProfile.CreatedOn</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Status</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@PaymentProfile.Status</label>
+                    </div>
+
+                </div>
+                <button type="button" class="btn btn-danger" @onclick="HandleValidSubmit">Delete</button>
+                <button type="button" class="btn btn-primary" @onclick="NavigateToOverview">Back</button>
+            </div>
+        </div>
+    </div>
+
+</section>

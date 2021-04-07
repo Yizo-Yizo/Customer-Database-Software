@@ -1,0 +1,71 @@
+﻿@page "/PaymentProfileOverview"
+@inherits PaymentProfileOverviewBase
+
+<div class="entity-edit">
+    <h1 class="page-title">Payment Profile Overview</h1>
+    <br />
+    <div class="Contact form-group">
+        <input class="form-control" type="text" placeholder="Filter..." @bind="Filter" @bind:event="oninput">
+    </div>
+    <br />
+    <a href="PaymentProfileEdit" title="Create New User" class="createNew btn btn-success ">
+        <i class="glyphicon glyphicon-plus"> Create New</i>
+    </a>
+    <br />
+    @if (PaymentProfiles != null)
+    {
+        <table class="AccountTable table table-hover">
+            <thead thead-light>
+
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Contact Name</th>
+                    <th scope="col">IBAN</th>
+                    <th scope="col">Status</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var PaymentProfile in PaymentProfiles)
+                {
+                    if (!IsVisible(PaymentProfile))
+                        continue;
+                    <tr>
+                        <td>@PaymentProfile.Id</td>
+                        <td>@PaymentProfile.Owner</td>
+                        <td>@PaymentProfile.Iban</td>
+                        <td>@PaymentProfile.Status</td>
+
+                        <td>
+                            <a href="@($"/Payments/{PaymentProfile.Id}")" class="btn btn-primary table-btn">
+                                <i class="fas fa-info-circle">Details</i>
+                            </a>
+                            <a href="@($"/PaymentProfileEdit/{PaymentProfile.Id}")" title="Edit User" class=" EditUser btn btn-warning table-btn">
+                                <i class="glyphicon glyphicon-pencil" style="color:white"></i>
+                            </a>
+                            <a href="@($"/DeletePaymentProfile/{PaymentProfile.Id}")" title="Delete User" class="DeleteUser btn btn-danger table-btn">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    }
+    <br />
+    <div class=" Paginator row col-md-12 ">
+        <ul class="pagination ">
+
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+
+        </ul>
+    </div>
+
+
+</div>

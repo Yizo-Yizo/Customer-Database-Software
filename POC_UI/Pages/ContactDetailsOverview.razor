@@ -1,0 +1,74 @@
+﻿@page "/Contacts"
+@inherits ContactDetailsOverviewBase
+
+<div class="entity-edit">
+    <h1 class="page-title">Contacts Overview</h1>
+    <br />
+    <div class="Contact form-group">
+        <input class="form-control" type="text" placeholder="Filter..." @bind="Filter" @bind:event="oninput">
+    </div>
+    <br />
+    <a href="ContactEdit" title="Create New User" class="createNew btn btn-success ">
+        <i class="glyphicon glyphicon-plus"> Create New</i>
+    </a>
+    <br />
+    @if (Contacts != null)
+    {
+        <table class="AccountTable table table-hover">
+            <thead thead-light>
+
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Contact Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var contact in Contacts)
+                {
+                    if (!IsVisible(contact))
+                        continue;
+                    <tr>
+                        <td>@contact.Id</td>
+                        <td>@contact.ContactPerson</td>
+                        <td>@contact.Email</td>
+                        <td>@contact.Phone</td>
+
+                        <td>
+                            <a href="@($"/ContactDetails/{contact.Id}")" class="btn btn-primary table-btn">
+                                <i class="fas fa-info-circle">Details</i>
+                            </a>
+                            <a href="@($"ContactEdit/{contact.Id}")" title="Edit User" class=" EditUser btn btn-warning table-btn">
+                                <i class="glyphicon glyphicon-pencil" style="color:white"></i>
+                            </a>
+                            <a href="@($"/DeleteContact/{contact.Id}")" title="Delete User" class="DeleteUser btn btn-danger table-btn">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    <br />
+    <div class=" Paginator row col-md-12 ">
+        <ul class="pagination ">
+
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+
+        </ul>
+    </div>
+
+
+</div>
+
+
+
+

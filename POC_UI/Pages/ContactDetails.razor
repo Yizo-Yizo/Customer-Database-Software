@@ -1,0 +1,98 @@
+﻿@page "/ContactDetails/{ContactId:int}"
+@inherits ContactDetailsBase
+
+<section class="account-detail-left">
+    <div class="AccountHeading">
+        <h2 class="Account-page-title">Contact Details: </h2>
+        <br />
+        <h3>@Contact.ContactPerson</h3>
+    </div>
+    @{
+        var leadingFormat = "00000";
+        //var a = Employee.EmployeeId.ToString("00000");
+    }
+
+    <table class="ContactAccountTable table table-hover container-fluid">
+        <thead thead-light>
+
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Contact Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone US</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">Joined Us</th>
+                <th scope="col">Ctreated On</th>
+                <th scope="col">Notes</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>@Contact.Id.ToString(leadingFormat)</td>
+                <td>@Contact.ContactPerson</td>
+                <td>@Contact.Email</td>
+                <td>@Contact.Phone</td>
+                <td>@Contact.Address</td>
+                <td>@Contact.City</td>
+                <td>@Contact.CreatedOn.ToShortDateString()</td>
+                <td>@Contact.CreatedOn</td>
+                <td>@Contact.Notes</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <div>
+        <button type="button" class="btn btn-primary" @onclick="NavigateToOverview">Back</button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    @if (AssociatedContacts != null)
+    {
+<table class="ContactAccountTable table table-over container-fluid">
+    <div class="OtherRelatedContacts">
+        <h3>Other Related Contacts</h3>
+    </div>
+    <div class="AssociateSearch" style="width:300px">
+        <input class="form-control" type="text" placeholder="Filter..." @bind="Filter" @bind:event="oninput">
+    </div>
+    <thead thead-light>
+
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Contact Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone US</th>
+            <th scope="col">Address</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var associatedContact in AssociatedContacts)
+        {
+            if (!Isvisible(associatedContact))
+                continue;
+
+            <tr>
+                <td>@associatedContact.Id.ToString(leadingFormat)</td>
+                <td>@associatedContact.ContactPerson</td>
+                <td>@associatedContact.Email</td>
+                <td>@associatedContact.Phone</td>
+                <td>@associatedContact.Address</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+    }
+
+
+</section>
+     

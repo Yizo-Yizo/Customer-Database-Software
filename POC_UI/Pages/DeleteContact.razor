@@ -1,0 +1,79 @@
+﻿@page "/DeleteContact/{ContactId:int}"
+@inherits DeleteContactBase
+
+<section class="account-detail">
+    <h1 class="page-title">Are you sure you want to delete Contact: @Contact.ContactPerson </h1>
+
+    @{
+        var leadingFormat = "00000";
+        //var a = Employee.EmployeeId.ToString("00000");
+    }
+
+
+    <div class="col-12 row">
+        <div class="col-10 row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"> Contact ID</label>
+                    <div class="col-sm-8">
+                        <label type="text" class="form-control-plaintext">@Contact.Id.ToString(leadingFormat)</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Account name</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@Contact.ContactPerson </label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Address</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@Contact.Address</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Email</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@Contact.Email</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Phone</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@Contact.Phone</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">City</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@Contact.City</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Created On</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@Contact.CreatedOn</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Joined us</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@Contact.CreatedOn.ToShortDateString()</label>
+                    </div>
+
+                </div>
+                <button type="button" class="btn btn-danger" @onclick="HandleValidSubmit">Delete</button>
+                <button type="button" class="btn btn-primary" @onclick="NavigateToContactsOverview">Back</button>
+            </div>
+        </div>
+    </div>
+
+
+</section>

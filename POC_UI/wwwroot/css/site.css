@@ -1,0 +1,156 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a, .btn-link {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.content {
+    padding-top: 1.1rem;
+   
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+
+/*Custom CSS*/
+
+.AccountTable tbody > tr:nth-child(n+21) {
+    display: none;
+}
+
+.content{
+    display:flex;
+}
+
+section.account-detail-left {
+    /* width:50%;*/
+    
+}
+.accountDetails-left {
+    /*width: 50%;*/
+    text-align: left;
+    
+   /* padding-right: 30px;*/
+    
+}
+.contacts-section-right {
+    padding:0px;
+    margin:0px;
+    
+}
+.Associated-contacts.container {
+    width: 100%;
+    text-align: left;
+    padding-left: 60px;
+   /* margin-top:0px;*/
+}
+
+.contacts-section-right container-fluid {
+    padding: 0px;
+    margin-top: 0px;
+    /*width: 50%*/
+}
+
+.AccountHeading{
+    /*width:400px;*/
+   
+
+}
+
+.Account-page-title{
+    width:450px
+}
+
+.ContactAccountTable {
+   display:block;
+}
+
+accountDetails-left {
+    background-color: lightgrey;
+}
+
+div.Associate-heading {
+    width: 100%
+}
+
+.AssociateSearch{
+    margin:0px
+}
+
+
+/*content {
+    display: grid;
+}*/
+
+
+.tooltip.CreateNew{
+    top:4px;
+    right:100%
+}
+
+.EditUser {
+    top: 4px;
+    right: 100%
+}
+
+.DeleteUser {
+    top: 4px;
+    right: 100%
+}
+
+.RelatedContacts{
+    display:table;
+
+    
+}
+.RelatedContacts th{
+    width:200px;
+}
+
+
+/*Centering image on home page*/
+img.CenterImage {
+    
+  position:fixed;
+  top:40%;
+  left:40%;
+}

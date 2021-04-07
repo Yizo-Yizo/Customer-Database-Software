@@ -1,0 +1,70 @@
+﻿@page "/AccountsOverview"
+@inherits AccountOverviewBase
+
+
+<div class="entity-edit">
+    <h1 class="page-title">Accounts Overview</h1>
+    <br />
+    <div class="Account form-group">
+        <input class="form-control" type="text" placeholder="Filter..." @bind="Filter" @bind:event="oninput">
+    </div>
+    <a href="AccountEdit" title="Create New User" class="createNew btn btn-success ">
+        <i class="glyphicon glyphicon-plus"> Create New</i>
+    </a>
+    <br />
+    @if (Accounts != null)
+        {
+            <table class="AccountTable table table-hover">
+                <thead thead-light>
+
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Account Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Contacts</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @for (int i = 0; i <= Numbers.Count-1; i++)
+                    {
+                        if (!Isvisible(ListOfIDs[i], ListOfNames[i], ListOfEmails[i], ListOfPhones[i], Numbers[i], ListOfIDS[i], ListOfNameS[i], ListOfEmailS[i], ListOfPhoneS[i]))
+                            continue;
+                        <tr>
+                            <td>@ListOfIDs[i]</td>
+                            <td>@ListOfNames[i]</td>
+                            <td>@ListOfEmails[i]</td>
+                            <td>@ListOfPhones[i]</td>
+                            <td>@Numbers[i]</td>
+
+                            <td>
+                                <a href="@($"AccountDetails/{ListOfIDs[i]}")" class=" btn btn-primary table-btn">
+                                    <i class="fas fa-info-circle">Details</i>
+                                </a>
+                                <a href="@($"AccountEdit/{ListOfIDs[i]}")" title="Edit User" class="EditUser btn btn-warning table-btn ">
+                                    <i class="glyphicon glyphicon-pencil" style="color:white"></i>
+                                </a>
+                                <a href="@($"/DeleteAccount/{ListOfIDs[i]}")" title="Delete User" class="DeleteUser btn btn-danger table-btn">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        <br />
+        <div class=" Paginator row col-md-12 ">
+            <ul class="pagination ">
+
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+
+            </ul>
+        </div>
+</div>

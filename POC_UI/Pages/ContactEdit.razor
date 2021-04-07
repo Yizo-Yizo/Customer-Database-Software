@@ -1,0 +1,39 @@
+﻿@page "/ContactEdit"
+@page "/ContactEdit/{ContactId:int}"
+@inherits ContactEditBase
+
+<div class="entity-edit">
+    <h1 class="page-title">Contact</h1>
+    <hr />
+    <EditForm Model="@Contact" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group row">
+            <label for="ContactName" class="col-sm-3">Contact Name: </label>
+            <InputText id="ContactName" class="form-control col-sm-8" @bind-Value="@Contact.ContactPerson" placeholder="Contact Name"></InputText>
+        </div>
+        <div class="form-group row">
+            <label for="Address" class="col-sm-3">Address: </label>
+            <InputText id="Address" class="form-control col-sm-8" @bind-Value="@Contact.Address" placeholder="Address"></InputText>
+        </div>
+        <div class="form-group row">
+            <label for="Email" class="col-sm-3">Email: </label>
+            <InputText id="Email" class="form-control col-sm-8" @bind-Value="@Contact.Email" placeholder="Email"></InputText>
+        </div>
+
+        <div class="form-group row">
+            <label for="Phone" class="col-sm-3">Phone: </label>
+            <InputText id="Phone" class="form-control col-sm-8" @bind-Value="@Contact.Phone" placeholder="Phone"></InputText>
+        </div>
+
+        <div class="form-group row">
+            <label for="City" class="col-sm-3">City: </label>
+            <InputText id="City" class="form-control col-sm-8" @bind-Value="@Contact.City" placeholder="City"></InputText>
+        </div>
+        <hr />
+        <button type="submit" class="btn btn-primary edit-btn">Submit</button>
+        <br />
+    </EditForm>
+    
+    <button type="button" class="btn btn-primary" @onclick="NavigateToContactsOverview">Back</button>
+</div>

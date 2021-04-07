@@ -1,0 +1,110 @@
+﻿@page "/AccountDetails/{AccountId:int}"
+@inherits AccountDetailsBase
+
+
+<section class="account-detail-left">
+    <div class="AccountHeading">
+        <h2 class="Account-page-title">Details for Account of: </h2>
+        <hr />
+        <h3>@Account.AccountName</h3>
+    </div>
+    @{
+        var leadingFormat = "00000";
+        //var a = Employee.EmployeeId.ToString("00000");
+    }
+
+<div class="accountDetails-left">
+
+    <div class="accountTable table-hover">
+        <div class="column">
+            <p><strong>Account ID : </strong>@Account.Id.ToString(leadingFormat)</p>
+        </div>
+        <div class="column">
+            <span><strong>Address :</strong> @Account.Address</span>
+        </div>
+        <br />
+        <div class="column">
+            <span><strong>Email :</strong> @Account.Email</span>
+        </div>
+        <br />
+        <div class="column">
+            <span><strong>Phone :</strong> @Account.Phone</span>
+        </div>
+        <br />
+        <div class="column">
+            <span><strong>City :</strong> @Account.City</span>
+        </div>
+        <br />
+        <div class="column">
+            <span><strong>Created On:</strong> @Account.CreatedOn</span>
+        </div>
+        <br />
+        <div class="column">
+            <span><strong>Status :</strong> @Account.Status</span>
+        </div>
+        <br />
+
+        <div class="column">
+            <span><strong>Number of Contacts :</strong> @Count</span>
+        </div>
+        <br />
+        <div class="column">
+            <span><strong>Joined Us:</strong> @Account.CreatedOn.ToShortDateString()</span>
+        </div>
+    </div>
+    <hr/>
+   
+        <div class="row" style="padding:15px">
+            <button type="button" class="payment btn btn-primary" @onclick="NavigateToPaymentProfile">Payments</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" @onclick="NavigateToOverview" >Back</button>
+        </div>
+    
+</div> 
+    
+</section>
+
+<hr/>
+
+<section id="contacts-section-right container-fluid">
+    <br/>
+    <div class="Associated-contacts container ">
+        <div class="AssociateSearch" style="width:300px">
+            <input class="form-control" type="text" placeholder="Filter..." @bind="Filter" @bind:event="oninput">
+        </div>
+        <br />
+
+
+        <h3><span style="white-space: nowrap; ">Associated Contact List</span></h3>
+        <div class="Associated-contacts-count" style="white-space: nowrap">
+            
+        </div>
+        <hr/>
+
+        @if (AssociatedContacts != null)
+        {
+        <table class="RelatedContacts table-hover">
+
+            <thead thead-light>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var associatedContact in AssociatedContacts)
+                {
+                    if (!Isvisible(associatedContact))
+                        continue;
+                    <tr>
+                        <td>@associatedContact.ContactPerson</td>
+                        <td>@associatedContact.Email</td>
+                        <td>@associatedContact.Phone</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        }
+    </div>
+</section>
